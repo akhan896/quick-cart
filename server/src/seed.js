@@ -127,14 +127,20 @@ const seed = async () => {
   });
   console.log(`👤 Admin created: ${admin.email}`);
 
-  // Create sample user
+  // Create sample users
   await User.create({
     name: 'John Doe',
     email: 'john@example.com',
     password: 'password123',
     isAdmin: false,
   });
-  console.log('👤 Sample user created: john@example.com');
+  await User.create({
+    name: 'Regular User',
+    email: 'user@quickcart.com',
+    password: 'user123',
+    isAdmin: false,
+  });
+  console.log('👤 Sample users created: john@example.com, user@quickcart.com');
 
   // Insert products
   await Product.insertMany(products);
